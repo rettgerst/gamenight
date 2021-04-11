@@ -1,12 +1,41 @@
 [
-  "434170",
-  "610180",
-  "774461",
-  "1005300",
-  "1211630",
-  "521350",
-  "1495860",
-  "1484730",
-  "1234220",
-  "945360"
+  {
+    "appId": "434170",
+    "subGames": [
+      {
+        "name": "Quiplash 2",
+        "description": "The say-anything sequel. Play all new questions or make your own!",
+        "players": [3, 8]
+      },
+      {
+        "name": "Trivia Murder Party",
+        "description": "A deadly quiz show where you match wits with a trivia-obsessed killer.",
+        "players": [1, 8]
+      },
+      {
+        "name": "Guesspionage",
+        "description": "The brain-battering data-mining guessing game.",
+        "players": [2, 8]
+      },
+      {
+        "name": "Tee K.O.",
+        "description": "The t-shirt slugfest where you battle your custom t-shirts to the death!",
+        "players": [3, 8]
+      },
+      {
+        "name": "Fakin' It",
+        "description": "One of your friends has something to hide in this sneaky game for tricksters.",
+        "players": [3, 6]
+      }
+    ]
+  },
+  { "appId": "610180" },
+  { "appId": "774461" },
+  { "appId": "1005300" },
+  { "appId": "1211630" },
+  { "appId": "521350" },
+  { "appId": "1495860" },
+  { "appId": "1484730" },
+  { "appId": "1234220" },
+  { "appId": "945360" }
 ]

@@ -1,9 +1,16 @@
-import { AppProps } from "next/dist/next-server/lib/router/router";
+import { AppProps } from 'next/dist/next-server/lib/router/router';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-import "./styles.scss";
+import './styles.scss';
+
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+	return (
+		<QueryClientProvider client={queryClient}>
+			<Component {...pageProps} />;
+		</QueryClientProvider>
+	);
 }
 
 export default MyApp;

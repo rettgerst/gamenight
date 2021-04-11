@@ -1,68 +1,166 @@
 .GameCard {
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.7);
-  width: 100%;
-  overflow: hidden;
-  background-color: #202020;
-  margin: 5px;
-  text-align: center;
-  flex-direction: column;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.7);
+	width: 100%;
+	overflow: hidden;
+	background-color: #202020;
+	margin: 5px;
+	text-align: center;
+	flex-direction: column;
 
-  display: flex;
+	display: flex;
 
-  .Banner {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    .GameImage {
-      width: 40%;
-    }
+	.MainGameInfo {
+		position: relative;
+		.Banner {
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+			.GameImage {
+				width: 40%;
+			}
 
-    .TitleAndDev {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      .GameName {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Open Sans Condensed";
-        font-stretch: condensed;
-        color: white;
-        width: 100%;
-        font-size: 40px;
-        margin: 0;
-        flex: 1;
-      }
+			.TitleAndDev {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				.GameName {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					font-family: 'Open Sans Condensed';
+					font-stretch: condensed;
+					color: white;
+					width: 100%;
+					font-size: 40px;
+					margin: 0;
+					flex: 1;
+				}
 
-      .GameDeveloper {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Open Sans Condensed";
-        font-family: "Open Sans Condensed";
-        margin: 0;
-        flex: 1;
-        font-size: 20px;
-      }
-    }
-  }
+				.GameDeveloper {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					font-family: 'Open Sans Condensed';
+					margin: 0;
+					flex: 1;
+					font-size: 20px;
+				}
+			}
+		}
 
-  .ImageContainer {
-    width: 20%;
-    overflow: hidden;
-    position: relative;
-  }
+		.ImageContainer {
+			width: 20%;
+			overflow: hidden;
+			position: relative;
+		}
 
-  .Info {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    flex: 1;
+		.Info {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			flex: 1;
 
-    .GameDescription {
-      margin: 1em;
-    }
-  }
+			.GameDescription {
+				margin: 1em;
+			}
+		}
+
+		.GameHoverContent {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.7);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			transition: opacity 0.05s linear;
+
+			.VoteForGame {
+				cursor: pointer;
+				width: 100%;
+				height: 100%;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				.Text {
+					font-family: 'Open Sans Condensed';
+					font-size: 50px;
+				}
+			}
+
+			.PackDisclaimer {
+				cursor: not-allowed;
+				width: 100%;
+				height: 100%;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				.Text {
+					font-family: 'Open Sans Condensed';
+					font-size: 50px;
+				}
+			}
+		}
+
+		&:not(:hover) {
+			.GameHoverContent {
+				opacity: 0;
+			}
+		}
+	}
+
+	.SubGames {
+		.SubGame {
+			width: 50%;
+			float: left;
+			box-sizing: border-box;
+			padding: 5px;
+			position: relative;
+
+			.SubGameName {
+				margin: 0;
+				font-size: 20px;
+			}
+
+			.SubGameDescription {
+				font-size: 14px;
+			}
+
+			.SubGameHoverContent {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.7);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				transition: opacity 0.05s linear;
+
+				.VoteForGame {
+					cursor: pointer;
+					width: 100%;
+					height: 100%;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					.Text {
+						font-family: 'Open Sans Condensed';
+						font-size: 30px;
+					}
+				}
+			}
+
+			&:not(:hover) {
+				.SubGameHoverContent {
+					opacity: 0;
+				}
+			}
+		}
+	}
 }
