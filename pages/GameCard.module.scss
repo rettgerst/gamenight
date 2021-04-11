@@ -1,0 +1,68 @@
+.GameCard {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  overflow: hidden;
+  background-color: #202020;
+  margin: 5px;
+  text-align: center;
+  flex-direction: column;
+
+  display: flex;
+
+  .Banner {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    .GameImage {
+      width: 40%;
+    }
+
+    .TitleAndDev {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .GameName {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Open Sans Condensed";
+        font-stretch: condensed;
+        color: white;
+        width: 100%;
+        font-size: 40px;
+        margin: 0;
+        flex: 1;
+      }
+
+      .GameDeveloper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Open Sans Condensed";
+        font-family: "Open Sans Condensed";
+        margin: 0;
+        flex: 1;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .ImageContainer {
+    width: 20%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .Info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+
+    .GameDescription {
+      margin: 1em;
+    }
+  }
+}

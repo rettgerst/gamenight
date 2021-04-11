@@ -26,29 +26,4 @@
   li {
     display: inline-block;
   }
-
-  .GameCard {
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.7);
-    width: 200px;
-    overflow: hidden;
-
-    background-color: #202020;
-
-    display: inline-block;
-
-    margin: 5px;
-
-    text-align: center;
-
-    .GameImage {
-      width: 100%;
-    }
-
-    .GameName {
-      text-align: center;
-      color: white;
-    }
-  }
 }
