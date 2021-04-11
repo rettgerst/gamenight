@@ -79,9 +79,6 @@ export default function Home({ games }: HomeProps) {
 					className={styles.Header}
 					src="https://i.imgur.com/D00VVbQ.png"
 				/>
-				<h2 style={{ color: 'red' }}>
-					This page is a work in progress!
-				</h2>
 				{winner && (
 					<>
 						<h2>Winner of current vote:</h2>
