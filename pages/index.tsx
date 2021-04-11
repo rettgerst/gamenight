@@ -49,6 +49,7 @@ export default function Home({ games }: HomeProps) {
         <h2>
           <i>Hosted by @nullhund</i>
         </h2>
+        <h2 style={{ color: "red" }}>This page is a work in progress!</h2>
         <h2>Game Menu</h2>
         <ul className={styles.GameList}>
           {Object.entries(games).map(([appId, gameData]) => (
