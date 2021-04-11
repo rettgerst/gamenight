@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"mikro-orm": "ts-node ./node_modules/@mikro-orm/cli/cli.js",
-		"vercel-build": "./scripts/install.sh && npm run migrate && npm run build",
+		"vercel-build": "npm run migrate && npm run build",
 		"migrate": "npm run --silent create-db && npm run --silent mikro-orm -- migration:up",
 		"create-db": "ts-node scripts/createDatabase.ts"
 	},
