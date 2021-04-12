@@ -51,7 +51,7 @@ export function GameCard({
 							className={styles.VoteForGame}
 						>
 							<span className={styles.Text}>
-								Click here to vote for {game.name}
+								Vote for {game.name}
 							</span>
 						</div>
 					)}
@@ -76,7 +76,7 @@ export function GameCard({
 									className={styles.VoteForGame}
 								>
 									<span className={styles.Text}>
-										Click here to vote for {sg.name}
+										Vote for {sg.name}
 									</span>
 								</div>
 							</div>
