@@ -120,6 +120,8 @@ export default function Home({ games }: HomeProps) {
 				<div className={styles.GameList}>
 					{Object.entries(games).map(([appId, gameData]) => (
 						<GameCard
+							myVote={vote?.game.steamInfo.steam_appid === +appId}
+							mySubgameVote={vote?.subGame?.name}
 							vote={submitVote}
 							key={appId}
 							game={gameData.steamInfo}

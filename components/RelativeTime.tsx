@@ -11,7 +11,7 @@ export default function RelativeTime({ time }: { time: number }) {
 		);
 
 		return () => clearInterval(interval);
-	}, []);
+	}, [time]);
 
 	return <>{str}</>;
 }

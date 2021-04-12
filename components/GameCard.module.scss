@@ -8,10 +8,14 @@
 	text-align: center;
 	flex-direction: column;
 
+	&.MyVote {
+		box-shadow: 0 0 20px #008cff;
+	}
+
 	display: flex;
 
 	&:not(:last-child) {
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 
 	.MainGameInfo {
@@ -123,6 +127,10 @@
 			box-sizing: border-box;
 			padding: 5px;
 			position: relative;
+
+			&.MyVote {
+				color: #008cff;
+			}
 
 			.SubGameName {
 				margin: 0;
