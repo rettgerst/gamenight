@@ -1,29 +1,47 @@
 .Content {
-  position: absolute;
-  margin: auto;
-  width: 1000px;
-  min-height: 100vh;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  box-sizing: border-box;
-  padding: 10px;
-  background-color: #111;
-  z-index: 999;
-  left: 50%;
-  transform: translateX(-50%);
+	position: absolute;
+	margin: auto;
+	width: 1000px;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding: 10px;
+	padding-bottom: 0;
+	background-color: transparent;
+	z-index: 999;
+	left: 50%;
+	transform: translateX(-50%);
 
-  .Header {
-    max-width: 100%;
-  }
+	.Header {
+		max-width: 100%;
+	}
+
+	.Footer {
+		opacity: 0.5;
+		display: flex;
+		flex-direction: row;
+		padding: 1em;
+		span {
+			flex: 1;
+			font-size: 20px;
+
+			.FooterLogo {
+				height: 25px;
+				vertical-align: middle;
+				&.Invert {
+					filter: invert(100%);
+				}
+			}
+		}
+	}
 }
 
 .GameList {
-  list-style: none;
+	list-style: none;
 
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 
-  li {
-    display: inline-block;
-  }
+	li {
+		display: inline-block;
+	}
 }

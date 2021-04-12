@@ -1,4 +1,5 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
 
 import ownedGames from '../games.json';
 
@@ -125,6 +126,35 @@ export default function Home({ games }: HomeProps) {
 							subGames={gameData.metadata.subGames}
 						/>
 					))}
+				</div>
+				<div className={styles.Footer}>
+					<span>
+						Built with{' '}
+						<a href="https://nextjs.org">
+							<img
+								className={styles.FooterLogo}
+								src="/nextjs.png"
+							/>
+						</a>
+					</span>
+					<span>
+						Hosted on{' '}
+						<a href="https://vercel.app">
+							<img
+								className={styles.FooterLogo}
+								src="/vercel.png"
+							/>
+						</a>
+					</span>
+					<span>
+						Data from{' '}
+						<a href="https://store.steampowered.com">
+							<img
+								className={`${styles.FooterLogo} ${styles.Invert}`}
+								src="/steam.png"
+							/>
+						</a>
+					</span>
 				</div>
 			</div>
 		</>
