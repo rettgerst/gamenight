@@ -2,24 +2,21 @@ import gamesJson from '../games.json';
 import styles from './GameCard.module.scss';
 import { GameDetail, SubGameData } from '../types';
 import classNames from 'classnames';
+import useMyVote from '../hooks/use-my-vote';
 
 export function GameCard({
 	game,
-	subGames,
-	vote,
-	myVote,
-	mySubgameVote
+	subGames
 }: {
 	game: GameDetail;
 	subGames?: typeof gamesJson[0]['subGames'];
-	vote: (gameId: number, subGameId?: number) => void;
-	myVote?: boolean;
-	mySubgameVote?: string;
 }) {
+	const { vote, submitVote } = useMyVote();
 	return (
 		<div
 			className={classNames(styles.GameCard, {
-				[styles.MyVote]: myVote
+				[styles.MyVote]:
+					vote?.game.steamInfo.steam_appid === game.steam_appid
 			})}
 		>
 			<div className={styles.MainGameInfo}>
@@ -46,7 +43,7 @@ export function GameCard({
 						</div>
 					) : (
 						<div
-							onClick={() => vote(game.steam_appid)}
+							onClick={() => submitVote(game.steam_appid)}
 							className={styles.VoteForGame}
 						>
 							<span className={styles.Text}>
@@ -62,7 +59,7 @@ export function GameCard({
 						<div
 							key={sg.name}
 							className={classNames(styles.SubGame, {
-								[styles.MyVote]: mySubgameVote === sg.name
+								[styles.MyVote]: vote?.subGame?.name === sg.name
 							})}
 						>
 							{'image' in sg && (
@@ -83,7 +80,9 @@ export function GameCard({
 							</div>
 							<div className={styles.SubGameHoverContent}>
 								<div
-									onClick={() => vote(game.steam_appid, sgi)}
+									onClick={() =>
+										submitVote(game.steam_appid, sgi)
+									}
 									className={styles.VoteForGame}
 								>
 									<span className={styles.Text}>

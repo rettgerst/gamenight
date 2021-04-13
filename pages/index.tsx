@@ -12,7 +12,11 @@ import useWinner from '../hooks/use-winner';
 import { useCallback, useMemo } from 'react';
 import useMyVote from '../hooks/use-my-vote';
 import RelativeTime from '../components/RelativeTime';
-import { voteLifespan } from '../constents';
+import { voteLifespan } from '../constants';
+import VoteContext from '../contexts/VoteContext';
+import Winner from '../components/Winner';
+import MyVote from '../components/MyVote';
+import VoteExpiration from '../components/Expiration';
 
 export async function getStaticProps(ctx: GetStaticPropsContext) {
 	const { STEAM_WEB_KEY } = process.env;
@@ -57,69 +61,20 @@ function hasSubgame(input: GameDescriptor): boolean {
 }
 
 export default function Home({ games }: HomeProps) {
-	const { winner, refetch: refetchWinner } = useWinner(games);
-
-	const { vote, refetch: refetchMyVote } = useMyVote(games);
-
-	const submitVote = useCallback((gameId: number, subGameId?: number) => {
-		fetch('/api/vote', {
-			method: 'POST',
-			body: JSON.stringify({ gameId, subGameId })
-		}).then(res => {
-			if (res.ok) {
-				refetchWinner();
-				refetchMyVote();
-			}
-		});
-	}, []);
-
 	return (
-		<>
+		<VoteContext.Provider value={{ games: games as any }}>
 			<div className={styles.Content}>
 				<h1 className={styles.Header}>Party Game Night!</h1>
-				{winner && (
-					<>
-						<h2>Winner of current vote:</h2>
-						<p>
-							{winner.game.steamInfo.name}
-							{'subGame' in winner &&
-							winner.subGame !== undefined &&
-							winner.subGame !== null
-								? `: ${winner.subGame!.name}`
-								: ''}
-						</p>
-					</>
-				)}
-				{vote && (
-					<>
-						<h2>You voted for:</h2>
-						<p>
-							{vote.game.steamInfo.name}
-							{'subGame' in vote &&
-							vote.subGame !== undefined &&
-							vote.subGame !== null
-								? `: ${vote.subGame!.name}`
-								: ''}
-						</p>
-						{vote.time && (
-							<>
-								<p>
-									Your vote expires in{' '}
-									<RelativeTime
-										time={vote.time + voteLifespan}
-									/>
-								</p>
-							</>
-						)}
-					</>
-				)}
+				<div className={styles.VoteSection}>
+					<Winner />
+					<div style={{ flex: '0 0 20px' }} />
+					<MyVote />
+				</div>
+				<VoteExpiration className={styles.VoteExpiration} />
 				<h2 className={styles.AvailableGames}>Available Games</h2>
 				<div className={styles.GameList}>
 					{Object.entries(games).map(([appId, gameData]) => (
 						<GameCard
-							myVote={vote?.game.steamInfo.steam_appid === +appId}
-							mySubgameVote={vote?.subGame?.name}
-							vote={submitVote}
 							key={appId}
 							game={gameData.steamInfo}
 							subGames={gameData.metadata.subGames}
@@ -156,6 +111,6 @@ export default function Home({ games }: HomeProps) {
 					</span>
 				</div>
 			</div>
-		</>
+		</VoteContext.Provider>
 	);
 }

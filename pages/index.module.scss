@@ -36,9 +36,51 @@
 		animation: rainbow 18s ease infinite;
 	}
 
-	.AvailableGames {
+	.VoteSection {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin-top: 80px;
+		margin-bottom: 50px;
+		height: 220px;
+
+		> div {
+			flex: 1;
+		}
+	}
+
+	.VoteExpiration {
+		font-size: 30px;
 		font-family: 'TS Block Bold';
-		font-size: 40px;
+
+		> p {
+			margin-bottom: 0.5em;
+		}
+
+		button {
+			border: 0;
+			background-color: white;
+			color: black;
+			padding: 5px 10px;
+			font-size: 25px;
+			font-family: 'TS Block Bold';
+			border-radius: 5px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #ccc;
+			}
+
+			&:active {
+				background-color: #aaa;
+			}
+		}
+	}
+
+	.AvailableGames {
+		margin-top: 0.5em;
+		font-family: 'TS Block Bold';
+		font-size: 70px;
 	}
 
 	.Footer {

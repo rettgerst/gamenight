@@ -1,7 +1,8 @@
 import gamesJson from '../games.json';
-import { useMemo } from 'react';
 import { useQuery } from 'react-query';
-import { GameDetail, WinnerResponse } from '../types';
+import { useContext, useMemo } from 'react';
+import VoteContext from '../contexts/VoteContext';
+import { WinnerResponse } from '../types';
 
 async function getWinner(): Promise<WinnerResponse> {
 	const res = await fetch('/api/winner');
@@ -9,12 +10,9 @@ async function getWinner(): Promise<WinnerResponse> {
 	else throw new Error(res.statusText);
 }
 
-export default function useWinner(
-	games: Record<
-		string,
-		{ steamInfo: GameDetail; metadata: typeof gamesJson[0] }
-	>
-) {
+export default function useWinner() {
+	const { games } = useContext(VoteContext);
+
 	const { data, ...others } = useQuery('winner', getWinner, {
 		refetchInterval: 5 * 1000
 	});

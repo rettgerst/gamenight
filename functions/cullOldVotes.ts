@@ -1,4 +1,4 @@
-import { voteLifespan } from '../constents';
+import { voteLifespan } from '../constants';
 import { repoQuery } from '../db/useDb';
 import { Vote } from '../entities/votes.entity';
 
