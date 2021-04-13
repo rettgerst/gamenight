@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export interface PackageGroup {
 	name: string;
 	title: string;
@@ -97,6 +99,14 @@ export interface GameDetail {
 	};
 	background: string;
 	content_descriptors: { ids: []; notes: null };
+}
+
+export interface SubGameData {
+	name: string;
+	description: string;
+	image?: string;
+	imageObjectPosition?: CSSProperties['objectPosition'];
+	players: [number, number];
 }
 
 export type GameDescriptor = {

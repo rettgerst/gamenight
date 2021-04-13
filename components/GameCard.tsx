@@ -1,6 +1,6 @@
 import gamesJson from '../games.json';
 import styles from './GameCard.module.scss';
-import { GameDetail } from '../types';
+import { GameDetail, SubGameData } from '../types';
 import classNames from 'classnames';
 
 export function GameCard({
@@ -59,17 +59,29 @@ export function GameCard({
 			</div>
 			{subGames ? (
 				<div className={styles.SubGames}>
-					{subGames.map((sg, sgi) => (
+					{(subGames as SubGameData[]).map((sg, sgi) => (
 						<div
 							key={sg.name}
 							className={classNames(styles.SubGame, {
 								[styles.MyVote]: mySubgameVote === sg.name
 							})}
 						>
-							<h5 className={styles.SubGameName}>{sg.name}</h5>
-							<p className={styles.SubGameDescription}>
-								{sg.description}
-							</p>
+							{'image' in sg && (
+								<div className={styles.Image}>
+									<img
+										style={{
+											objectPosition:
+												sg.imageObjectPosition
+										}}
+										src={sg.image!}
+									/>
+								</div>
+							)}
+							<div className={styles.Info}>
+								<p className={styles.SubGameDescription}>
+									{sg.description}
+								</p>
+							</div>
 							<div className={styles.SubGameHoverContent}>
 								<div
 									onClick={() => vote(game.steam_appid, sgi)}
