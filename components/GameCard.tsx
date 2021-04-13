@@ -41,8 +41,7 @@ export function GameCard({
 					{subGames ? (
 						<div className={styles.PackDisclaimer}>
 							<span className={styles.Text}>
-								This game is a pack, vote for one of the options
-								below
+								Choose one of the options below
 							</span>
 						</div>
 					) : (

@@ -1,6 +1,17 @@
 @import '@fontsource/source-sans-pro';
 @import '@fontsource/open-sans-condensed';
 @import '@fontsource/open-sans';
+@import '@fontsource/oswald';
+
+@font-face {
+	font-family: 'Another Danger';
+	src: url('/AnotherDanger.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'TS Block Bold';
+	src: url('/TSBlockBold.ttf') format('truetype');
+}
 
 body,
 html {
