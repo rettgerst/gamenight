@@ -3,6 +3,7 @@ import styles from './GameCard.module.scss';
 import { GameDetail, SubGameData } from '../types';
 import classNames from 'classnames';
 import useMyVote from '../hooks/use-my-vote';
+import { useCallback } from 'react';
 
 export function GameCard({
 	game,
@@ -12,14 +13,18 @@ export function GameCard({
 	subGames?: typeof gamesJson[0]['subGames'];
 }) {
 	const { vote, submitVote } = useMyVote();
+
+	const clickHandler = useCallback((appId: number, subGameId?: number) => {
+		submitVote(appId, subGameId);
+		window.scroll({ top: 0, behavior: 'smooth' });
+	}, []);
+
 	return (
-		<div
-			className={classNames(styles.GameCard, {
-				[styles.MyVote]:
-					vote?.game.steamInfo.steam_appid === game.steam_appid
-			})}
-		>
-			<div className={styles.MainGameInfo}>
+		<div className={styles.GameCard}>
+			<div
+				className={styles.MainGameInfo}
+				onClick={() => clickHandler(game.steam_appid)}
+			>
 				<div className={styles.Banner}>
 					<img className={styles.GameImage} src={game.header_image} />
 					<div className={styles.TitleAndDev}>
@@ -43,7 +48,7 @@ export function GameCard({
 						</div>
 					) : (
 						<div
-							onClick={() => submitVote(game.steam_appid)}
+							onClick={() => clickHandler(game.steam_appid)}
 							className={styles.VoteForGame}
 						>
 							<span className={styles.Text}>
@@ -57,10 +62,9 @@ export function GameCard({
 				<div className={styles.SubGames}>
 					{(subGames as SubGameData[]).map((sg, sgi) => (
 						<div
+							onClick={() => clickHandler(game.steam_appid, sgi)}
 							key={sg.name}
-							className={classNames(styles.SubGame, {
-								[styles.MyVote]: vote?.subGame?.name === sg.name
-							})}
+							className={styles.SubGame}
 						>
 							{'image' in sg && (
 								<div className={styles.Image}>
@@ -81,7 +85,7 @@ export function GameCard({
 							<div className={styles.SubGameHoverContent}>
 								<div
 									onClick={() =>
-										submitVote(game.steam_appid, sgi)
+										clickHandler(game.steam_appid, sgi)
 									}
 									className={styles.VoteForGame}
 								>
