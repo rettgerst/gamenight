@@ -66,6 +66,9 @@ export default function Home({ games, absoluteUrl }: HomeProps) {
 						}
 					]
 				}}
+				twitter={{
+					cardType: 'summary_large_image'
+				}}
 			/>
 			<VoteContext.Provider value={{ games: games as any }}>
 				<div className={styles.Content}>
