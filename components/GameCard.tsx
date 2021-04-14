@@ -1,7 +1,6 @@
 import gamesJson from '../games.json';
 import styles from './GameCard.module.scss';
 import { GameDetail, SubGameData } from '../types';
-import classNames from 'classnames';
 import useMyVote from '../hooks/use-my-vote';
 import { useCallback } from 'react';
 
