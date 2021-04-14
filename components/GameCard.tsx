@@ -12,7 +12,7 @@ export function GameCard({
 	game: GameDetail;
 	subGames?: typeof gamesJson[0]['subGames'];
 }) {
-	const { vote, submitVote } = useMyVote();
+	const { submitVote } = useMyVote();
 
 	const clickHandler = useCallback((appId: number, subGameId?: number) => {
 		submitVote(appId, subGameId);
@@ -23,7 +23,9 @@ export function GameCard({
 		<div className={styles.GameCard}>
 			<div
 				className={styles.MainGameInfo}
-				onClick={() => clickHandler(game.steam_appid)}
+				onClick={
+					subGames ? undefined : () => clickHandler(game.steam_appid)
+				}
 			>
 				<div className={styles.Banner}>
 					<img className={styles.GameImage} src={game.header_image} />
