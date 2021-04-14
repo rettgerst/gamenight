@@ -47,6 +47,10 @@
 		> div {
 			flex: 1;
 		}
+
+		.Spacer {
+			flex: 0 0 20px;
+		}
 	}
 
 	.VoteExpiration {
@@ -111,5 +115,45 @@
 
 	li {
 		display: inline-block;
+	}
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+	.Content {
+		width: 100%;
+		overflow: hidden;
+
+		.Header {
+			font-size: 40px;
+		}
+
+		.VoteSection {
+			display: block;
+			margin-top: 20px !important;
+			height: auto !important;
+
+			> div {
+				width: 100% !important;
+				height: 200px !important;
+				box-sizing: border-box;
+
+				&:not(:last-child) {
+					margin-bottom: 50px;
+				}
+			}
+
+			.Spacer {
+				display: none;
+			}
+		}
+
+		.Footer {
+			span {
+				font-size: 10px;
+				.FooterLogo {
+					height: 12px;
+				}
+			}
+		}
 	}
 }

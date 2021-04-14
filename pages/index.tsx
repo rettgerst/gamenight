@@ -67,7 +67,7 @@ export default function Home({ games }: HomeProps) {
 				<h1 className={styles.Header}>Party Game Night!</h1>
 				<div className={styles.VoteSection}>
 					<Winner />
-					<div style={{ flex: '0 0 20px' }} />
+					<div className={styles.Spacer} />
 					<MyVote />
 				</div>
 				<VoteExpiration className={styles.VoteExpiration} />
