@@ -32,7 +32,7 @@ export function GameCard({
 					<div className={styles.TitleAndDev}>
 						<h3 className={styles.GameName}>{game.name}</h3>
 						<h4 className={styles.GameDeveloper}>
-							{game.developers.join(',')}
+							{game.developers.join(', ')}
 						</h4>
 					</div>
 				</div>
