@@ -57,8 +57,8 @@ export default function Home({ games, absoluteUrl }: HomeProps) {
 	return (
 		<>
 			<NextSeo
-				title="PGN"
-				description="Party game night game selection and voting!"
+				title="Party Game Night!"
+				description="Voting for Jackbox and other party games!"
 				openGraph={{
 					images: [
 						{
