@@ -5,6 +5,7 @@ import ownedGames from '../games.json';
 import styles from './index.module.scss';
 
 import SteamAPI from 'steamapi';
+import Image from 'next/image';
 import { GameDescriptor, GameDetail } from '../types';
 import { GameCard } from '../components/GameCard';
 import VoteContext from '../contexts/VoteContext';
@@ -93,28 +94,55 @@ export default function Home({ games, absoluteUrl }: HomeProps) {
 						<span>
 							Built with{' '}
 							<a href="https://nextjs.org">
-								<img
+								<div
+									style={{
+										width: '50px',
+										height: '2em',
+										marginTop: '-.25em',
+										marginBottom: '-.25em'
+									}}
 									className={styles.FooterLogo}
-									src="/nextjs.png"
-								/>
+								>
+									<Image
+										objectFit="contain"
+										layout="fill"
+										src="/nextjs.png"
+									/>
+								</div>
 							</a>
 						</span>
 						<span>
 							Hosted on{' '}
 							<a href="https://vercel.app">
-								<img
+								<div
+									style={{ width: '65px' }}
 									className={styles.FooterLogo}
-									src="/vercel.png"
-								/>
+								>
+									<Image
+										objectFit="contain"
+										layout="fill"
+										src="/vercel.png"
+									/>
+								</div>
 							</a>
 						</span>
 						<span>
 							Data from{' '}
 							<a href="https://store.steampowered.com">
-								<img
+								<div
+									style={{
+										width: '65px',
+										position: 'relative',
+										bottom: '1px'
+									}}
 									className={`${styles.FooterLogo} ${styles.Invert}`}
-									src="/steam.png"
-								/>
+								>
+									<Image
+										objectFit="contain"
+										layout="fill"
+										src="/steam.png"
+									/>
+								</div>
 							</a>
 						</span>
 					</div>

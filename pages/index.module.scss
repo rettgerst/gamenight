@@ -99,7 +99,9 @@
 			font-size: 20px;
 
 			.FooterLogo {
-				height: 25px;
+				height: 1.5em;
+				position: relative;
+				display: inline-block;
 				vertical-align: middle;
 				&.Invert {
 					filter: invert(100%);
