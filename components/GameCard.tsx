@@ -3,6 +3,7 @@ import styles from './GameCard.module.scss';
 import { GameDetail, SubGameData } from '../types';
 import useMyVote from '../hooks/use-my-vote';
 import { useCallback } from 'react';
+import Image from 'next/image';
 
 export function GameCard({
 	game,
@@ -27,7 +28,13 @@ export function GameCard({
 				}
 			>
 				<div className={styles.Banner}>
-					<img className={styles.GameImage} src={game.header_image} />
+					<div className={styles.GameImage}>
+						<Image
+							objectFit="cover"
+							layout="fill"
+							src={game.header_image}
+						/>
+					</div>
 					<div className={styles.TitleAndDev}>
 						<h3 className={styles.GameName}>{game.name}</h3>
 						<h4 className={styles.GameDeveloper}>
@@ -67,14 +74,12 @@ export function GameCard({
 							key={sg.name}
 							className={styles.SubGame}
 						>
-							{'image' in sg && (
+							{'image' in sg && sg.image && (
 								<div className={styles.Image}>
-									<img
-										style={{
-											objectPosition:
-												sg.imageObjectPosition
-										}}
-										src={sg.image!}
+									<Image
+										objectFit="cover"
+										layout="fill"
+										src={sg.image}
 									/>
 								</div>
 							)}
