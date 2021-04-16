@@ -18,6 +18,7 @@ export default function VoteCard({
 				layout="fill"
 				objectFit="cover"
 				src={image}
+				quality={100}
 			/>
 		</div>
 	);
