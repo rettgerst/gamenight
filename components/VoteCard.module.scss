@@ -7,24 +7,15 @@
 		border-radius: 5px;
 		overflow: hidden;
 	}
-	.Title,
-	.GameName {
+	.Title {
 		width: 100%;
 		font-family: 'TS Block Bold';
 		font-size: 50px;
 		position: absolute;
+		top: 0;
 		left: 50%;
 		text-shadow: 3px 3px 0 black;
 		z-index: 20;
-	}
-
-	.Title {
-		top: 0;
 		transform: translate(-50%, -50%);
-	}
-
-	.GameName {
-		bottom: 0;
-		transform: translate(-50%, 50%);
 	}
 }

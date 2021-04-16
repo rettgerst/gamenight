@@ -19,7 +19,6 @@ export default function VoteCard({
 				objectFit="cover"
 				src={image}
 			/>
-			<span className={styles.GameName}>{gameName}</span>
 		</div>
 	);
 }
