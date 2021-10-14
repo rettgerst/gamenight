@@ -1,6 +1,7 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 import ownedGames from '../games.json';
+import gameOrder from '../gameorder.json';
 
 import styles from './index.module.scss';
 
@@ -82,13 +83,18 @@ export default function Home({ games, absoluteUrl }: HomeProps) {
 					<VoteExpiration className={styles.VoteExpiration} />
 					<h2 className={styles.AvailableGames}>Available Games</h2>
 					<div className={styles.GameList}>
-						{Object.entries(games).map(([appId, gameData]) => (
-							<GameCard
-								key={appId}
-								game={gameData.steamInfo}
-								subGames={gameData.metadata.subGames}
-							/>
-						))}
+						{gameOrder.map(appId => {
+							const data = games[appId];
+
+							return (
+								<GameCard
+									key={appId}
+									game={data.steamInfo}
+									subGames={data.metadata.subGames}
+									new={data.metadata.new}
+								/>
+							);
+						})}
 					</div>
 					<div className={styles.Footer}>
 						<span>

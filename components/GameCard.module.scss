@@ -1,12 +1,22 @@
+@keyframes wiggle {
+	from {
+		transform: translate(20%, -20%) rotate(-10deg);
+	}
+	to {
+		transform: translate(20%, -20%) rotate(10deg);
+	}
+}
+
 .GameCard {
 	border: 1px solid black;
 	border-radius: 5px;
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.7);
 	width: 100%;
-	overflow: hidden;
+	// overflow: hidden;
 	background-color: #111;
 	text-align: center;
 	flex-direction: column;
+	position: relative;
 
 	display: flex;
 
@@ -195,6 +205,24 @@
 					opacity: 0;
 				}
 			}
+		}
+	}
+
+	.NewStarburst {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 70px;
+		height: 70px;
+		transform: translate(20%, -20%) rotate(0deg);
+		background-color: #ff0048;
+		z-index: 999;
+		animation: wiggle 3s ease-in-out infinite alternate;
+
+		.StarburstText {
+			font-family: 'TS Block Bold';
+			font-size: 30px;
+			font-weight: bold;
 		}
 	}
 }

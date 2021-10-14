@@ -175,6 +175,38 @@
 			}
 		]
 	},
+
+	{
+		"appId": "1552350",
+		"new": true,
+		"subGames": [
+			{
+				"name": "Drawful Animate",
+				"description": "It’s alive! The classic guessing game makes an energetic return in Drawful: Animate, which has players drawing two-frame animations based on absurd prompts.",
+				"image": "/jb8/drawful-animate.jpg"
+			},
+			{
+				"name": "Job Job",
+				"description": "Use other people’s words to answer interview questions! Funny and unique answers get votes, and the player with the most points SCORES THE JOB (JOB)!",
+				"image": "/jb8/jobjob.jpg"
+			},
+			{
+				"name": "The Poll Mine",
+				"description": "A survey game of survival! Divide into two teams, secretly answer survey questions, then try to guess the results. Can you open the correct doors and escape?!",
+				"image": "/jb8/TPM.jpg"
+			},
+			{
+				"name": "Weapons Drawn",
+				"description": "A social deduction game where everyone did it. You try to distract from the murders you committed by solving the other murders.",
+				"image": "/jb8/weapons-drawn.jpg"
+			},
+			{
+				"name": "The Wheel of Enormous Proportions",
+				"description": "A hybrid game of trivia and chance hosted by an immortal, all-knowing wheel from a mountaintop in the sky.",
+				"image": "/jb8/wheel.jpg"
+			}
+		]
+	},
 	{ "appId": "521350" },
 	{ "appId": "1495860" },
 	{ "appId": "1484730" },

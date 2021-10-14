@@ -4,13 +4,16 @@ import { GameDetail, SubGameData } from '../types';
 import useMyVote from '../hooks/use-my-vote';
 import { useCallback } from 'react';
 import Image from 'next/image';
+import Starburst from './Starburst';
 
 export function GameCard({
 	game,
-	subGames
+	subGames,
+	new: isNew
 }: {
 	game: GameDetail;
 	subGames?: typeof gamesJson[0]['subGames'];
+	new?: boolean;
 }) {
 	const { submitVote } = useMyVote();
 
@@ -21,6 +24,11 @@ export function GameCard({
 
 	return (
 		<div className={styles.GameCard}>
+			{isNew && (
+				<Starburst className={styles.NewStarburst}>
+					<p className={styles.StarburstText}>New!</p>
+				</Starburst>
+			)}
 			<div
 				className={styles.MainGameInfo}
 				onClick={
